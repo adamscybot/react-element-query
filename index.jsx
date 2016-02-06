@@ -27,7 +27,7 @@ export default class ElementQuery extends Component {
           }
         }
     })).isRequired
-    , makeClassName: PropTypes.func,
+    , makeClassName: PropTypes.func
     , renderWhenReady: PropTypes.bool
   }
 
@@ -37,7 +37,7 @@ export default class ElementQuery extends Component {
     default: ''
     , sizes: []
     , makeClassName: identity
-    , children: <span />,
+    , children: <span />
     , renderWhenReady: false
   }
 
