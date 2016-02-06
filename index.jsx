@@ -27,7 +27,8 @@ export default class ElementQuery extends Component {
           }
         }
     })).isRequired
-    , makeClassName: PropTypes.func
+    , makeClassName: PropTypes.func,
+    , renderWhenReady: PropTypes.bool
   }
 
   static defaultProps = {
@@ -36,7 +37,8 @@ export default class ElementQuery extends Component {
     default: ''
     , sizes: []
     , makeClassName: identity
-    , children: <span />
+    , children: <span />,
+    , renderWhenReady: false
   }
 
   constructor (props) {
@@ -157,6 +159,7 @@ static _componentMap = new Map()
       ? this.state.size
       : this.props.default
     const className = size ? this.props.makeClassName(size) : ''
+    const shouldRender = !this.props.renderWhenReady || (this.props.renderWhenReady && size)
     const makeChild = ElementQuery.makeChild
     const {children} = this.props
     const child = Array.isArray(children) && Children.count(children) === 1
@@ -169,6 +172,10 @@ static _componentMap = new Map()
     // like real element queries, this enables the user to do things like wrap
     // an `<li>` in an element query and not break HTML semantics, or use
     // element query and not break expectations around things like flexbox.
-    return makeChild(Children.only(child), className)
+    if (shouldRender) {
+        return makeChild(Children.only(child), className)
+    }
+
+    return null;
   }
 }
