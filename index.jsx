@@ -173,9 +173,9 @@ static _componentMap = new Map()
     // an `<li>` in an element query and not break HTML semantics, or use
     // element query and not break expectations around things like flexbox.
     if (shouldRender) {
-        return makeChild(Children.only(child), className)
+      return makeChild(Children.only(child), className)
     }
 
-    return null;
+    return null
   }
 }
