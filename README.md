@@ -67,7 +67,7 @@ Takes the `name` for the matched size and returns a different classname. Useful 
 ### `<String> default`
 The server has no way to know the browser window width, and therefore, can't calculate the element width, so by default, it assumes there is no element query class applied. If you'd like to set a different default, pass a size name. Defaults to `''`.
 
-## `<Bool> renderWhenReady`
+### `<Bool> renderWhenReady`
 When `true`, the child element will not be rendered until the initial classname has been determined. Defaults to `false`.
 
 ## Methods
